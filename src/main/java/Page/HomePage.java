@@ -1,5 +1,6 @@
 package Page;
 
+import Utils.BrowserOps;
 import Utils.Waits;
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -15,10 +16,12 @@ public class HomePage {
 
     private WebDriver driver;
     Waits waits;
+    BrowserOps browserOps;
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(driver);
+        browserOps = new BrowserOps(driver);
         PageFactory.initElements(driver, this);
     }
 
@@ -27,6 +30,9 @@ public class HomePage {
 
     @FindBy(xpath="//a[text()='New Customer']")
     private WebElement newCustLink;
+
+    @FindBy(xpath="//li/a[@href='DepositInput.php']")
+    private WebElement depositLink;
 
     public String navigateToHomePage() {
         String homepageURL = "http://demo.guru99.com/V4/manager/Managerhomepage.php";
@@ -40,6 +46,10 @@ public class HomePage {
 
     public void getNavigateToDeleteAccountPage(){
         driver.findElement(By.xpath("//a[text()='Delete Account']")).click();
+    }
+
+    public void getNavigateTDepositPage(){
+       browserOps.jsClick(depositLink);
     }
 
     public ArrayList<String> getHomePageSideMenuOptions() {

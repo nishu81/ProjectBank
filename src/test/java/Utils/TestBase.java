@@ -8,7 +8,7 @@ public class TestBase {
     protected LaunchBrowser launchBrowser;
     protected BrowserOps browserOps;
     protected DataGenerator dataGenerator;
-    protected  Waits waits;
+    protected Waits waits;
     protected LoginPage loginPage;
     protected HomePage homePage;
     protected SearchCustomerIDToEdit searchCustomerIDToEdit;
@@ -19,4 +19,6 @@ public class TestBase {
     protected HelperMethods helperMethods;
     protected NewCustomerCreatePage newCustomerCreatePage;
     protected NewCustomerCreatedConfirmationPage newCustomerCreatedConfirmationPage;
+    protected DepositAmountPage depositAmountPage;
+    protected DepositConfirmationPage depositConfirmationPage;
 }
